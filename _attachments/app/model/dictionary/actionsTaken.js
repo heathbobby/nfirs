@@ -1,5 +1,5 @@
 Ext.define('AM.model.dictionary.actionsTaken', {
-	extend: 'AM.model.dictionary.Dictionary',
+	extend: 'AM.model.dictionary.dictionary',
 	proxy: { 
 		type: 'rest', 
 		url: '/couchdb/nfirs',

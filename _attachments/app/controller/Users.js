@@ -27,6 +27,8 @@ Ext.define('AM.controller.Users', {
 
     edit: function(params)
     {
+      console.log('userEdit', params);
+      return;
         var view,
             store = this.getUsersStore(),
             record = store.getById(params.id);
@@ -47,7 +49,8 @@ Ext.define('AM.controller.Users', {
 //listeners
    onListRowDblClick: function(userList, record)
    {
-       Ext.ux.Router.redirect('users/' + record.getId() + '/edit');
+      //console.log(record);
+      Ext.ux.Router.redirect('users/' + record.get('id') + '/edit');
    },
    
    onBtnUpdateClick: function(button)

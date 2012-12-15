@@ -1,4 +1,4 @@
-Ext.define('AM.store.dictionary.LocationType', {
+Ext.define('AM.store.dictionary.locationType', {
 	extend: 'Ext.data.Store',
 	model: 'AM.model.dictionary.locationType'
 });

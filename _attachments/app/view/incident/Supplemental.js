@@ -51,7 +51,7 @@ Ext.define('AM.view.incident.Supplemental', {
 			queryMode:'remote'
 		},//Coded
 		/*{xtype: 'combo', fieldLabel:'Mixed Use', name:'mixedUse'},//Coded*/
-		{xtype: 'combo', fieldLabel:'Property Use', name:'propertyUse', store:'dictionary.PropertyUse',
+		{xtype: 'combo', fieldLabel:'Property Use', name:'propertyUse', store:'dictionary.propertyUse',
 			displayField:'desc',
 			valueField:'id',
 			triggerAction:'all',

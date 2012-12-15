@@ -1,5 +1,5 @@
-Ext.define('AM.model.dictionary.NamePrefix', {
-	extend: 'AM.model.dictionary.Dictionary',
+Ext.define('AM.model.dictionary.namePrefix', {
+	extend: 'AM.model.dictionary.dictionary',
 	proxy: { 
 		type: 'rest', 
 		url: '/couchdb/nfirs',

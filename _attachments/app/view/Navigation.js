@@ -5,8 +5,8 @@ Ext.define('AM.view.Navigation', {
     bodyCls:'nav',
     height: 50,
     layout: 'fit',
-    template: '<ul><tpl for="."><li><a href="/demos/nfirs/_attachments{href}">{text}</a></li></tpl></ul>',
-    data:[{href:"",text:"Home"},{href:"#incidents",text:"Incidents"}, {href:'#users', text:'Users'}],
+    template: '<ul><tpl for="."><li><a href="{href}">{text}</a></li></tpl></ul>',
+    data:[{href:"#",text:"Home"},{href:"#incidents",text:"Incidents"}, {href:'#users', text:'Users'}],
 //inits
     initComponent: function()
     {

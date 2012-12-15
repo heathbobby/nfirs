@@ -1,5 +1,5 @@
-Ext.define('AM.model.dictionary.StreetPrefixOrSuffix', {
-	extend: 'AM.model.dictionary.Dictionary',
+Ext.define('AM.model.dictionary.streetPrefixOrSuffix', {
+	extend: 'AM.model.dictionary.dictionary',
 	proxy: { 
 		type: 'rest', 
 		url: '/couchdb/nfirs',

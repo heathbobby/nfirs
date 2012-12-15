@@ -4,16 +4,16 @@ Ext.define('AM.controller.Admin', {
         'admin.Admin',
 		'datadictionary.List'
     ],
-    stores:['dictionary.ActionsTaken', 'dictionary.aidGivenOrReceived', 'dictionary.detector', 'dictionary.hazardousMaterialsReleased', 'dictionary.incidentType', 'dictionary.locationType', 'dictionary.mixedUseProperty', 'dictionary.namePrefix', 'dictionary.nameSuffix', 'dictionary.PropertyUse', 'dictionary.stateTerritoryAbbreviations', 'dictionary.streetPrefixOrSuffix', 'dictionary.streetType'],
+    stores:['dictionary.ActionsTaken', 'dictionary.aidGivenOrReceived', 'dictionary.detector', 'dictionary.hazardousMaterialsReleased', 'dictionary.incidentType', 'dictionary.locationType', 'dictionary.mixedUseProperty', 'dictionary.namePrefix', 'dictionary.nameSuffix', 'dictionary.propertyUse', 'dictionary.stateTerritoryAbbreviations', 'dictionary.streetPrefixOrSuffix', 'dictionary.streetType'],
     init: function() {
-        this.control({
-           'datadictionarylist':{
+        this.control( {
+           'datadictionarylist': {
 			   render:this.dataDictionaryList
 		   }
-        });
+        } );
     },
 
     dataDictionaryList: function() {
-        console.log('DataDictionaryList');
+        //console.log('DataDictionaryList');
     }
 });

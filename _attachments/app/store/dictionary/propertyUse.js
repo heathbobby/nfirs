@@ -1,4 +1,4 @@
-Ext.define('AM.store.dictionary.PropertyUse', {
+Ext.define('AM.store.dictionary.propertyUse', {
 	extend: 'Ext.data.Store',
 	model: 'AM.model.dictionary.propertyUse'
 });

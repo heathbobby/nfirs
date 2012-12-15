@@ -1,4 +1,4 @@
-Ext.define('AM.store.dictionary.NamePrefix', {
+Ext.define('AM.store.dictionary.namePrefix', {
 	extend: 'Ext.data.Store',
 	model: 'AM.model.dictionary.namePrefix'
 });

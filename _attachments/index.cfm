@@ -1,21 +1,20 @@
 <cfsetting showdebugoutput="false" />
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html>
 	<head>
 	    <title>NFIRS</title>
 
 	    <!-- Ext JS -->
-	    <!--- link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-neptune.css" / --->
-	    <link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-all.css" />
-	    <script type="text/javascript" src="ext_4/ext-all-debug.js"></script>
+	    <link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-neptune.css" />
+	    <!---link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-all.css" / --->
+	    <script type="text/javascript" src="ext_4/ext-all.js"></script>
 		<!--- script type="text/javascript" src="all-classes.js"></script --->
-	    <!--- script type="text/javascript" src="../../ext-neptune.js"></script --->
+	    <script type="text/javascript" src="ext_4/ext-neptune.js"></script>
 
 	    <!-- Example
 	    <link rel="stylesheet" type="text/css" href="/scripts/extjs-4.1.1/resources/css/ext-neptune.css" /> -->
 
     <!-- GC -->
-		<title>ExtJs Demo - HTML Site</title>
 		<style>
             html, body { margin:0px; padding:0px; font-family:Tahoma, Geneva, sans-serif; color:#1D1D1D; }
             #header {/* background-color:#6482D0;*/ height:150px; }

@@ -1,4 +1,4 @@
-Ext.define('AM.store.dictionary.StateTerritoryAbbreviations', {
+Ext.define('AM.store.dictionary.stateTerritoryAbbreviations', {
 	extend: 'Ext.data.Store',
 	model: 'AM.model.dictionary.stateTerritoryAbbreviations'
 });

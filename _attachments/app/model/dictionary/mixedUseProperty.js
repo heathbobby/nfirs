@@ -1,5 +1,5 @@
-Ext.define('AM.model.dictionary.MixedUseProperty', {
-	extend: 'AM.model.dictionary.Dictionary',
+Ext.define('AM.model.dictionary.mixedUseProperty', {
+	extend: 'AM.model.dictionary.dictionary',
 	proxy: { 
 		type: 'rest', 
 		url: '/couchdb/nfirs',

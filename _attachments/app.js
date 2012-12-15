@@ -2,10 +2,10 @@ Ext.Loader.setConfig({enabled: true});
 Ext.application({
 	appFolder: 'app',
 	paths: { 'Ext.ux': 'app/ux' },
-	requires: ['Ext.ux.Router'],
+	requires: ['Ext.ux.Router'],//, 'Ext.ux.sencha-couch'],
 	autoCreateViewport: true,
 	name: 'AM',
-	controllers:['Controller','Users','Admin','Incident'],
+	controllers:['Controller', 'Users', 'Incident', 'Admin'],
 	routes:{ 
 		'/': 'controller#dashboard',
 		'dashboard':'controller#dashboard',

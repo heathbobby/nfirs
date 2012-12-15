@@ -1,7 +1,4 @@
-Ext.define('AM.model.dictionary.Dictionary', {
-    extend: 'Ext.data.Model',
-    fields: [
-	 {name:'id', type:'string'},
-	 {name:'desc', type:'string'}
-	]
+Ext.define('AM.store.dictionary.dictionary', {
+    extend: 'Ext.data.Store',
+    model: 'AM.model.dictionary.dictionary'
 });

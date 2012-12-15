@@ -4,7 +4,7 @@ Ext.define('AM.view.incident.Basic', {
 	autoScroll:true,
 	title: 'Basic',
 	bodyStyle:{ padding:'5px'},
-	defaults:{ bodyStyle: { padding:'5px' } },
+	defaults:{ bodyStyle: { padding:'5px' }, labelStyle: 'font-weight:bold' },
 	items:[
 		{ xtype:'hidden', fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
 		{ xtype:'addressView', title:'Incident Address' },	
@@ -21,10 +21,25 @@ Ext.define('AM.view.incident.Basic', {
 		{ xtype:'personView', title:'Person(s) Involved' },
 		{ xtype:'personView', title:'Incident Owner' },
 		{ xtype:'specialStudyView', title:'Specials Studies' },
-		{ xtype:'textfield', fieldLabel:'Alarm Date Time', name:'alarmDateTime', type:'int'},
-		{ xtype:'textfield', fieldLabel:'Arrival Date Time', name:'arrivalDateTime', type:'int'},
-		{ xtype:'textfield', fieldLabel:'Incident Controlled Date Time', name:'incidentControlledDateTime', type:'int'},
-		{ xtype:'textfield', fieldLabel:'Last Unit Cleared Date Time', name:'lastUnitClearedDateTime', type:'int'},
+		{ xtype:'fieldcontainer', fieldLabel:'Alarm Date Time', layout:'hbox',
+			items:[
+				{ xtype:'datefield', name:'alarmDate' },
+				{ xtype:'timefield', name:'alarmTime', increment:'30', margins: '0 0 0 5' }
+			]
+		},
+		{ xtype:'fieldcontainer', fieldLabel:'Arrival Date Time', layout:'hbox', items:[
+				{ xtype:'datefield', name:'arrivalDate' },
+				{ xtype:'timefield', name:'arrivalTime', increment:'30', margins: '0 0 0 5' }
+			]
+		},
+		{ xtype:'fieldcontainer', fieldLabel:'Incident Controlled Date Time', layout:'hbox', items:[
+				{ xtype:'datefield', name:'incidentControlledDate' },
+				{ xtype:'timefield', name:'incidentControlledTime', increment:'30', margins: '0 0 0 5' }
+			]},
+		{ xtype:'fieldcontainer', fieldLabel:'Last Unit Cleared Date Time', layout:'hbox', items:[
+				{ xtype:'datefield', name:'lastUnitClearedDate' },
+				{ xtype:'timefield', name:'lastUnitClearedTime', increment:'30', margins: '0 0 0 5' }
+			]},
 		{ xtype:'textfield', fieldLabel:'Shift', name:'shift', type:'string'},
 		{ xtype:'textfield', fieldLabel:'Alarms', name:'alarms', type:'string'},
 		{ xtype:'textfield', fieldLabel:'District', name:'district', type:'string'},
@@ -59,7 +74,7 @@ Ext.define('AM.view.incident.Basic', {
 			queryMode:'remote'
 		},//Coded
 		/*{xtype: 'combo', fieldLabel:'Mixed Use', name:'mixedUse'},//Coded*/
-		{ xtype: 'combo', fieldLabel:'Property Use', name:'propertyUse', store:'dictionary.PropertyUse',
+		{ xtype: 'combo', fieldLabel:'Property Use', name:'propertyUse', store:'dictionary.propertyUse',
 			displayField:'desc',
 			valueField:'id',
 			triggerAction:'all',
