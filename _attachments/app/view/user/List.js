@@ -3,6 +3,12 @@ Ext.define('AM.view.user.List' ,{
 	alias: 'widget.userlist',
 	title: 'All Users',
 	store:'Users',
+	dockedItems:[
+		{ xtype:'toolbar', items:['->', 
+				{ xtype:'button', text:'New User', itemId:'newUser'}
+			]
+		}
+	],
 	initComponent: function() {
 
 		this.columns = [

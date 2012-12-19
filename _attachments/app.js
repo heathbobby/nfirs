@@ -2,7 +2,7 @@ Ext.Loader.setConfig({enabled: true});
 Ext.application({
 	appFolder: 'app',
 	paths: { 'Ext.ux': 'app/ux' },
-	requires: ['Ext.ux.Router'],//, 'Ext.ux.sencha-couch'],
+	requires: ['Ext.ux.Router','Ext.ux.data.proxy.CouchProxy', 'Ext.ux.data.reader.CouchReader', 'Ext.ux.data.writer.CouchWriter'],
 	autoCreateViewport: true,
 	name: 'AM',
 	controllers:['Controller', 'Users', 'Incident', 'Admin'],
@@ -13,7 +13,8 @@ Ext.application({
 		'incident/create':'incident#create',
 		'incident/:id/edit':'incident#edit',
 		'users': 'users#list',
-		'users/:id/edit': 'users#edit'
+		'users/:id/edit': 'users#edit',
+		'users/create': 'users#create'
 	},
 	launch: function() {
 		Ext.override(Ext.app.Controller, {

@@ -5,14 +5,12 @@
 	    <title>NFIRS</title>
 
 	    <!-- Ext JS -->
+        <link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-all.css" />
 	    <link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-neptune.css" />
-	    <!---link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-all.css" / --->
-	    <script type="text/javascript" src="ext_4/ext-all.js"></script>
+	    
+	    <script type="text/javascript" src="ext_4/ext-all-debug.js"></script>
 		<!--- script type="text/javascript" src="all-classes.js"></script --->
 	    <script type="text/javascript" src="ext_4/ext-neptune.js"></script>
-
-	    <!-- Example
-	    <link rel="stylesheet" type="text/css" href="/scripts/extjs-4.1.1/resources/css/ext-neptune.css" /> -->
 
     <!-- GC -->
 		<style>

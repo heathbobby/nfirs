@@ -1,15 +1,19 @@
 Ext.define('AM.model.User', {
 	extend: 'Ext.data.Model',
 	proxy: { 
-		type: 'rest', 
+		type: 'couchProxy', 
 		url: '/couchdb/nfirs',
 		reader: {
-			type:'json',
+			type:'couchReader',
 			root:'rows',
-			record:'value'
+			record:'value',
+			idProperty: '_id'
 		},
 		api: {
-			read:'/couchdb/nfirs/_design/personnel/_view/all'
+			read:'/couchdb/nfirs/_design/personnel/_view/all',
+			create:'/couchdb/nfirs',
+			update:'/couchdb/nfirs',
+			destroy:'/couchdb/nfirs'
 		},
 		
 	},

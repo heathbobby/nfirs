@@ -1,5 +1,7 @@
-Ext.define('Ext.ux.data.writer.CouchDB',{
+Ext.define('Ext.ux.data.writer.CouchWriter',{
 	extend:'Ext.data.writer.Writer',
+	alias:'writer.couchWriter',
+
 	getRecordData: function(record, operation) {
 		var isPhantom = record.phantom === true,
 				writeAll = this.writeAllFields || isPhantom,
@@ -46,5 +48,48 @@ Ext.define('Ext.ux.data.writer.CouchDB',{
 		}
 
 		return data;
+	},
+
+	writeValue: function(data, field, record){
+				var name = field[this.nameProperty] || field.name,
+						dateFormat = this.dateFormat || field.dateWriteFormat || field.dateFormat,
+						value = record.get(field.name);
+						
+				if (field.serialize) {
+						data[name] = field.serialize(value, record);
+				} else if (field.type === Ext.data.Types.DATE && dateFormat && Ext.isDate(value)) {
+						data[name] = Ext.Date.format(value, dateFormat);
+				} else {
+						data[name] = value;
+				}
+		},
+
+	writeRecords: function(request, data){
+		 var root = this.root;
+				
+				if (this.allowSingle && data.length == 1) {
+						// convert to single object format
+						data = data[0];
+				}
+				
+				if (this.encode) {
+						if (root) {
+								// sending as a param, need to encode
+								request.params[root] = Ext.encode(data);
+						} else {
+								//<debug>
+								Ext.Error.raise('Must specify a root when using encode');
+								//</debug>
+						}
+				} else {
+						// send as jsonData
+						request.jsonData = request.jsonData || {};
+						if (root) {
+								request.jsonData[root] = data;
+						} else {
+								request.jsonData = data;
+						}
+				}
+				return request;
 	}
 });
