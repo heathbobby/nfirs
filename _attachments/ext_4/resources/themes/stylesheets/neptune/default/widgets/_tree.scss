@@ -1,25 +1,5 @@
 @mixin extjs-tree {
 
-    // Declare some 'constants' for the image sprites
-    $PLUS_NO_LINES: -0 * $tree-elbow-width;
-    $MINUS_NO_LINES: -1 * $tree-elbow-width;
-    $RIGHT_ARROW_NO_LINES: -2 * $tree-elbow-width;
-    $DOWN_ARROW_NO_LINES: -3 * $tree-elbow-width;
-    $PLUS_WITH_LINES: -4 * $tree-elbow-width;
-    $PLUS_WITH_LINES_LAST_CHILD: -5 * $tree-elbow-width;
-    $MINUS_WITH_LINES: -6 * $tree-elbow-width;
-    $MINUS_WITH_LINES_LAST_CHILD: -7 * $tree-elbow-width;
-    $RIGHT_ARROW_WITH_LINES: -8 * $tree-elbow-width;
-    $RIGHT_ARROW_WITH_LINES_LAST_CHILD: -9 * $tree-elbow-width;
-    $DOWN_ARROW_WITH_LINES: -10 * $tree-elbow-width;
-    $DOWN_ARROW_WITH_LINES_LAST_CHILD: -11 * $tree-elbow-width;
-    $CLOSED_FOLDER_NO_LINES: -12 * $tree-elbow-width;
-    $CLOSED_FOLDER_WITH_LINES: -13 * $tree-elbow-width;
-    $OPEN_FOLDER_NO_LINES: -15 * $tree-elbow-width;
-    $OPEN_FOLDER_WITH_LINES: -16 * $tree-elbow-width;
-    $LEAF_NO_LINES: -18 * $tree-elbow-width;
-    $LEAF_WITH_LINES: -19 * $tree-elbow-width;
-
     // Tree tables must assume either full width of the View element, or, when necessary, must overflow
     // They must not shrink wrap the width and only be as wide as their widest node's content.
     .#{$prefix}autowidth-table table.#{$prefix}grid-table {
@@ -65,42 +45,43 @@
     .#{$prefix}tree-icon-end-plus,
     .#{$prefix}tree-icon-leaf,
     .#{$prefix}tree-icon-parent {
-        background-image: theme-background-image($theme-name, 'tree/elbows.png');
+        background-image: theme-background-image($theme-name, 'icons.png');
     }
 
     //+/-, no lines
     .#{$prefix}tree-elbow-plus,
     .#{$prefix}tree-elbow-end-plus {
-        background-image: theme-background-image($theme-name, 'tree/icons-gray.png');
-        background-position: $PLUS_NO_LINES 0;
+        background-position-x: -($tree-elbow-width * 1); //8
+        background-position-y: -(24px * 1);
     }
 
     .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-plus,
     .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-end-plus {
-        background-image: theme-background-image($theme-name, 'tree/icons-gray.png');
-        background-position: $MINUS_NO_LINES 0;
+        background-image: theme-background-image($theme-name, 'icons.png');
+        background-position-x: -($tree-elbow-width * 2); //8
+        background-position-y: -(24px * 1);
     }
 
     //+/-, lines
     .#{$prefix}tree-lines {
         .#{$prefix}tree-elbow-plus {
-            background-image: theme-background-image($theme-name, 'tree/icons-gray.png');
-            background-position: $PLUS_WITH_LINES 0;
+            background-position-x: -($tree-elbow-width * 5); //8
+            background-position-y: -(24px * 1);
         }
 
         .#{$prefix}tree-elbow-end-plus {
-            background-image: theme-background-image($theme-name, 'tree/icons-gray.png');
-            background-position: $PLUS_WITH_LINES_LAST_CHILD 0;
+            background-position-x: -($tree-elbow-width * 6);
+            background-position-y: -(24px * 1);
         }
 
         .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-plus {
-            background-image: theme-background-image($theme-name, 'tree/icons-gray.png');
-            background-position: $MINUS_WITH_LINES 0;
+            background-position-x: -($tree-elbow-width * 7); //8
+            background-position-y: -(24px * 1);
         }
 
         .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-end-plus {
-            background-image: theme-background-image($theme-name, 'tree/icons-gray.png');
-            background-position: $MINUS_WITH_LINES_LAST_CHILD 0;
+            background-position-x: -($tree-elbow-width * 8); //8
+            background-position-y: -(24px * 1);
         }
     }
 
@@ -108,71 +89,71 @@
     .#{$prefix}tree-arrows {
         .#{$prefix}tree-elbow-plus,
         .#{$prefix}tree-elbow-end-plus {
-            background-position: $RIGHT_ARROW_NO_LINES 0;
+            background-position-x: -($tree-elbow-width * 3);
         }
 
         .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-plus,
         .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-end-plus {
-            background-position: $DOWN_ARROW_NO_LINES 0;
+            background-position-x: -($tree-elbow-width * 4);
         }
     }
 
     .#{$prefix}tree-arrows {
         &.#{$prefix}tree-lines {
             .#{$prefix}tree-elbow-plus {
-                background-position: $RIGHT_ARROW_WITH_LINES 0;
+                background-position-x: -($tree-elbow-width * 9);
             }
 
             .#{$prefix}tree-elbow-end-plus {
-                background-position: $RIGHT_ARROW_WITH_LINES_LAST_CHILD 0;
+                background-position-x: -($tree-elbow-width * 10);
             }
 
             .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-plus {
-                background-position: $DOWN_ARROW_WITH_LINES 0;
+                background-position-x: -($tree-elbow-width * 11);
             }
 
             .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-elbow-end-plus {
-                background-position: $DOWN_ARROW_WITH_LINES_LAST_CHILD 0;
+                background-position-x: -($tree-elbow-width * 12);
             }
         }
     }
 
     //folder, no lines
     .#{$prefix}tree-icon-parent {
-        background-position: $CLOSED_FOLDER_NO_LINES 0 !important;
-        background-image: theme-background-image($theme-name, 'tree/icons-orange.png');
+        background-position-x: -($tree-elbow-width * 13) !important;
+            background-position-y:  -(24px * 5) !important;
     }
     
     .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-icon-parent {
-        background-position: $OPEN_FOLDER_NO_LINES 0 !important;
+        background-position-x: -($tree-elbow-width * 16) !important;
     }
 
     .#{$prefix}tree-icon-leaf {
-        background-position: $LEAF_NO_LINES 0 !important;
+        background-position-x: -($tree-elbow-width * 19) !important;
     }
 
     //folder, lines
     .#{$prefix}tree-lines {
         .#{$prefix}tree-icon-parent {
             width: $tree-elbow-width;
-            background-position: $CLOSED_FOLDER_WITH_LINES 0 !important;
+            background-position-x: -($tree-elbow-width * 14) !important;
         }
         
         .#{$prefix}grid-tree-node-expanded .#{$prefix}tree-icon-parent {
-            background-position: $OPEN_FOLDER_WITH_LINES 0 !important;
+            background-position-x: -($tree-elbow-width * 17) !important;
         }
     }
 
     //leaf, no lines
     .#{$prefix}tree-icon-leaf {
         width: $tree-elbow-width;
-        background-position: $LEAF_NO_LINES 0 !important;
-        background-image: theme-background-image($theme-name, 'tree/icons-orange.png');
+        background-position-x: -($tree-elbow-width * 19) !important;
+        background-position-y:  -(24px * 5) !important;
     }
 
     .#{$prefix}tree-lines {
         .#{$prefix}tree-icon-leaf {
-            background-position: $LEAF_WITH_LINES 0 !important;
+            background-position-x: -($tree-elbow-width * 20) !important;
         }
     }
     
@@ -186,25 +167,22 @@
         .#{$prefix}tree-icon-end-plus,
         .#{$prefix}tree-icon-leaf,
         .#{$prefix}tree-icon-parent {
-            background-image: theme-background-image($theme-name, 'tree/icons-white.png') !important;
+            background-position-y: -(24px * 4) !important;
         }
     }
 
     // lines
     .#{$prefix}tree-lines {
         .#{$prefix}tree-elbow-line {
-            background-image: theme-background-image($theme-name, 'tree/elbows.png');
-            background-position: 0 $tree-elbow-height * 2;
+            background-position-y: -(24px * 1);
         }
 
         .#{$prefix}tree-elbow {
-            background-image: theme-background-image($theme-name, 'tree/elbows.png');
-            background-position: 0 $tree-elbow-height * 0;
+            background-position: -($tree-elbow-width * 0) 0;
         }
-
+        
         .#{$prefix}tree-elbow-end {
-            background-image: theme-background-image($theme-name, 'tree/elbows.png');
-            background-position: 0 $tree-elbow-height * 1;
+            background-position-y: -(24px * 2);
         }
     }
 

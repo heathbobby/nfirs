@@ -1,19 +1,25 @@
 Ext.define('Ext.ux.data.proxy.CouchProxy',{
 	extend: 'Ext.data.proxy.Rest',
 	alias: 'proxy.couchProxy',
-	
+	actionMethods: {
+		create : 'POST',
+		read   : 'GET',
+		update : 'PUT',
+		destroy: 'DELETE'
+	},
 	constructor: function(config) {
-		var databaseUrl = config.databaseUrl || '/';
+		var databaseUrl = config.url || '/';
 		var databaseName = config.databaseName || 'your_database';
 		var designName = config.designName || 'your_design_name';
 		var viewName = config.viewName || 'your_view_name';
 
-		this.restUrl = '/' + databaseName;
-		this.viewUrl = '/' + databaseName + '/_design/' + designName + '/_view/' + viewName;
-		
-		Ext.apply(config, {
+		this.restUrl = databaseUrl + '/' + databaseName;
+		this.viewUrl = this.restUrl + '/_design/' + designName + '/_view/' + viewName;
+
+		config = Ext.Object.merge({
 			url: databaseUrl,
 			api: {
+				list: this.viewUrl,
 				create: this.restUrl,
 				read: this.restUrl,
 				update: this.restUrl,
@@ -30,13 +36,13 @@ Ext.define('Ext.ux.data.proxy.CouchProxy',{
 				type: 'couchReader'
 			},
 			writer: {
-				type: 'couchWriter'
+				type: 'couchWriter',
+				allowSingle: true
 			}
-		});
-
+		}, config );
 		this.callParent(arguments);
 	},
-	
+
 	// This method is overridden to switch between loading a single object or executing a query using
 	// a CouchDB view.
 	read: function(operation, callback, scope) {
@@ -57,7 +63,7 @@ Ext.define('Ext.ux.data.proxy.CouchProxy',{
 			this.callParent(arguments);
 		}
 	},
-	
+
 	// This method is overridden because Ext JS expects the PUT or POST request to return the object,
 	// but CouchDB only returns the id and the new revision.
 	update: function(operation, callback, scope) {

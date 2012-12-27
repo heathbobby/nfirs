@@ -12,7 +12,8 @@ Ext.define('AM.controller.Users', {
 				itemdblclick: this.onListRowDblClick
 			},
 			'useredit button[action=save]': {
-				click: this.onBtnUpdateClick
+				click: this.onBtnUpdateClick,
+				scope:this
 			},
 			'userlist button':{
 				click: function(){ Ext.ux.Router.redirect('users/create'); }
@@ -32,26 +33,25 @@ Ext.define('AM.controller.Users', {
 	{
 		var view,
 			store = this.getUsersStore(),
-			record = store.getById(params.id);
-			
+			record = store.getById(params.id) || Ext.create('AM.model.User');
 		if(!record)
 		{    
 			return;
 		}
 		
-		view = Ext.widget('useredit');
-		view.down('form').loadRecord(record);
+		view = Ext.widget( 'useredit', { width:500 } );
+		view.down( 'form' ).loadRecord( record );
 	},
 
 	create: function(){
-		Ext.ux.Router.redirect('users/0/edit');
+		view = Ext.widget( 'useredit', { width:500 });
+		view.down( 'form' ).loadRecord( Ext.create('AM.model.User') );
 	},
 	
 //listeners
-	onListRowDblClick: function(userList, record)
+	onListRowDblClick: function(gridView, record, item, index, event, eventOptions )
 	{
-		//console.log(record);
-		Ext.ux.Router.redirect('users/' + record.get('id') + '/edit');
+		Ext.ux.Router.redirect('users/' + record.getId() + '/edit');
 	},
 
 	onBtnUpdateClick: function(button)
@@ -62,6 +62,7 @@ Ext.define('AM.controller.Users', {
 			values = form.getValues();
 
 		record.set(values);
+		record.save({ callback:this.list, scope:this });
 		win.close();
 	}
 });

@@ -46,6 +46,11 @@ Ext.define('Ext.ux.data.writer.CouchWriter',{
 				// always include the id for non phantoms
 				data[record.idProperty] = record.getId();
 		}
+		
+		if(operation.action === "create") {
+				delete data._rev;
+				delete data.id;
+		}
 
 		return data;
 	},

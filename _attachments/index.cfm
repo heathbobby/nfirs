@@ -5,7 +5,7 @@
 	    <title>NFIRS</title>
 
 	    <!-- Ext JS -->
-        <link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-all.css" />
+        <!-- link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-all.css" / -->
 	    <link rel="stylesheet" type="text/css" href="ext_4/resources/css/ext-neptune.css" />
 	    
 	    <script type="text/javascript" src="ext_4/ext-all-debug.js"></script>

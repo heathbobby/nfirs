@@ -4,18 +4,23 @@ Ext.define('AM.view.user.Edit', {
 
 	title: 'Edit User',
 	layout: 'fit',
+	bodyStyle:'padding:4px;',
 	autoShow: true,
 
 	initComponent: function() {
-		var store = Ext.create('AM.store.dictionary.ActionsTaken',{});
-		store.on('load',function(){console.log(arguments);},this);
 		this.items = [
 			{
 				xtype: 'form',
 				items: [
+					{ xtype: 'hidden', name:'docType', value:'personnel'},
 					{
 						xtype: 'textfield',
-						name : 'firstname',
+						name : 'personnelId',
+						fieldLabel: 'Personnel Id'
+					},
+					{
+						xtype: 'textfield',
+						name : 'firstName',
 						fieldLabel: 'First Name'
 					},{
 						xtype: 'textfield',
@@ -25,15 +30,6 @@ Ext.define('AM.view.user.Edit', {
 						xtype: 'textfield',
 						name : 'rank',
 						fieldLabel: 'Rank'
-					},{
-						xtype: 'combo',
-						name : 'actionsTaken',
-						fieldLabel: 'Actions Taken',
-						store:'dictionary.ActionsTaken',
-						displayField:'desc',
-						valueField:'id',
-						triggerAction:'all',
-						queryMode:'remote'
 					}
 				]
 			}

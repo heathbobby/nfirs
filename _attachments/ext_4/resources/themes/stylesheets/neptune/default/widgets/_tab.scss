@@ -228,13 +228,11 @@
 
     .#{$prefix}tab-icon-text-left {
         .#{$prefix}tab-inner {
-            padding-left: 24px;
+            padding-left: 20px;
         }
     }
 
     .#{$prefix}tab {
-        background: rgba(255,255,255,.2);
-        
         button, a {
             position: relative;
 
@@ -249,27 +247,6 @@
                 height: $tab-icon-size;
             }
         }
-
-        &.x-icon {
-            em {
-//                padding: 7px 10px 8px;
-            }
-
-            button {
-                width: $tab-icon-size;
-                height: $tab-icon-size;
-            }
-        }
-
-        &.x-icon-text-left {
-            em {
-//                padding-left: 10px;
-            }
-        }
-    }
-
-    .#{$prefix}tab-default-plain {
-        background: transparent
     }
 
     //over
@@ -329,12 +306,6 @@
                 @include background-gradient(#CCCCCC, null);
             }
         }
-
-        .#{$prefix}tab-icon {
-            &:after {
-                color: $tab-color-active;
-            }
-        }
     }
 
     .#{$prefix}tab-top-active {
@@ -364,19 +335,17 @@
                 font-family: $tab-font-family-disabled;
             }
         }
-
-        .#{$prefix}tab-icon {
-            &:after {
-                opacity: .5;
-            }
-        }
     }
 
     .#{$prefix}tab-top-disabled {
-//        @include background-gradient($tab-base-color-disabled, $tab-background-gradient-disabled, top);
+        background-image: none;
+        background: transparent;
+        @include background-gradient($tab-base-color-disabled, $tab-background-gradient-disabled, top);
     }
     .#{$prefix}tab-bottom-disabled {
-//        @include background-gradient($tab-base-color-disabled, $tab-background-gradient-disabled, bottom);
+        background-image: none;
+        background: transparent;
+        @include background-gradient($tab-base-color-disabled, $tab-background-gradient-disabled, bottom);
     }
 
     @if not $supports-gradients or $compile-all {

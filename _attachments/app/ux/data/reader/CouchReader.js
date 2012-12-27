@@ -1,7 +1,7 @@
 Ext.define('Ext.ux.data.reader.CouchReader', {
 	extend: 'Ext.data.reader.Json',
 	alias: 'reader.couchReader',
-	
+	idProperty: '_id',
 	root: 'rows',
 	record: 'doc',
 	successProperty: 'ok',

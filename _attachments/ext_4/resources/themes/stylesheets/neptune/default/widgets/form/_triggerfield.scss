@@ -1,20 +1,24 @@
 @mixin extjs-form-triggerfield {
     .#{$prefix}form-trigger-wrap {
-        vertical-align: top;
+        position: absolute;
+        right: 3px;
+        top: 3px;
     }
 
     .#{$prefix}form-trigger {
-        width: ($form-trigger-width + $form-trigger-margin-left);
-        height: $form-trigger-height;
+        position: relative;
 
+        width: $form-trigger-width;
+        height: $form-trigger-height;
+        float: left;
         cursor: pointer;
 
-        margin-left: $form-trigger-margin-left;
+        margin-left: 2px;
 
         &:after {
             position: absolute;
-            top: 5px;
-            left: 6px;
+            top: 3px;
+            left: 3px;
             width: 11px;
             height: 11px;
 
@@ -23,38 +27,34 @@
         }
     }
 
-    .#{$prefix}trigger-cell {
-        position: relative;
-    }
-
-    .#{$prefix}form-date-trigger:after {
+    .x-form-date-trigger:after {
         background-position: -11px 0;
     }
 
-    .#{$prefix}form-spinner-down:after {
+    .x-form-spinner-down:after {
         background-position: -22px 0;
     }
 
-    .#{$prefix}form-spinner-up:after {
+    .x-form-spinner-up:after {
         background-position: -33px 0;
     }
 
-    .#{$prefix}form-search-trigger:after {
+    .x-form-search-trigger:after {
         background-position: -44px 0;
     }
 
-    .#{$prefix}form-clear-trigger:after {
+    .x-form-clear-trigger:after {
         background-position: -55px 0;
     }
 
-    .#{$prefix}form-trigger-over,
-    .#{$prefix}pickerfield-open .#{$prefix}form-trigger {
+    .x-form-trigger-over,
+    .x-pickerfield-open .x-form-trigger {
         @include border-radius(2px);
         border: 1px solid #C7DBEE;
         @include background-gradient(#E2F0FC, null);
     }
 
-//    .#{$prefix}form-invalid {
+//    .x-form-invalid {
 //        .#{$prefix}form-trigger {
 //            @include background-gradient(#FC0D1B, null);
 //        }
