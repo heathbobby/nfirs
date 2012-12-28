@@ -7,7 +7,7 @@ Ext.define('AM.view.transaction.Authority', {
 		align: 'stretch'
 	},
 	items: [
-		{ xtype:'hidden', fieldLabel:'PersonnelId', name:'authorityPersonnelId', type:'string' },
+		{ xtype:'textfield', hidden:true, fieldLabel:'PersonnelId', name:'authorityPersonnelId', type:'string' },
 		{ 
 			xtype:'fieldcontainer',
 			fieldLabel:'Name',

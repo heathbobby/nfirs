@@ -12,7 +12,12 @@ Ext.define('AM.view.user.Edit', {
 			{
 				xtype: 'form',
 				items: [
-					{ xtype: 'hidden', name:'docType', value:'personnel'},
+					{ xtype: 'textfield', 
+						name:'docType', 
+						fieldLabel:'Doc Type', 
+						value:'personnel',
+						hidden:true
+					},
 					{
 						xtype: 'textfield',
 						name : 'personnelId',

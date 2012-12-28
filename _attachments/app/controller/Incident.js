@@ -14,16 +14,24 @@ Ext.define('AM.controller.Incident', {
 	],
 	models:['incident.Incident','incident.Basic'],
 	stores:['incident.Incident'],
+	refs:[
+		{ ref:'list', selector:'incidentlist'},
+		{ ref:'incident', selector:'incident'}
+	],
 	init: function() {
 		this.control({
-			'basicincident button[action=save]': {
-				click: this.updateIncident
-			},
+			
 			'incidentlist':{
-				itemdblclick: function(){ Ext.ux.Router.redirect('incident/' + record.getId() + '/edit'); }
+				itemdblclick: this.onListRowDblClick,// function(){ Ext.ux.Router.redirect('incident/' + record.getId() + '/edit'); },
+				rowcreate: this.create,
+				rowedit: this.edit,
+				scope:this
 			},
-			'incidentlist button':{
-				click: function(){ Ext.ux.Router.redirect('incident/create'); }
+			'incident':{
+				cancel:this.list
+			},
+			'incident button[action=save]': {
+				click: this.updateIncident
 			}
 		});
 	},
@@ -34,14 +42,30 @@ Ext.define('AM.controller.Incident', {
 		values = form.getValues();
 		record.set(values);
 	},
+	onListRowDblClick: function(gridView, record, item, index, event, eventOptions )
+	{
+		this.edit( { id:record.getId() } );
+		//Ext.ux.Router.redirect('users/' + record.getId() + '/edit');
+	},
 	//Actions
 	list: function(){
+		this.getIncidentIncidentStore().load();
 		this.render('incident.List');
 	},
-	edit: function(){
+	edit: function(params){
+		var me = this,
+			view,
+			store = this.getIncidentIncidentStore(),
+			record = store.getById(params.id) || Ext.create('AM.model.incident.Incident');
+		if(!record)
+		{    
+			return;
+		}
 		this.render('incident.Incident');
+		this.getIncident().down( 'form' ).loadRecord( record );
 	},
 	create: function(){
+		console.log('incident.create',arguments);
 		this.render('incident.Incident');	
 	}
 });

@@ -6,7 +6,7 @@ Ext.define('AM.view.incident.Basic', {
 	bodyStyle:{ padding:'5px'},
 	defaults:{ bodyStyle: { padding:'5px' }, labelStyle: 'font-weight:bold' },
 	items:[
-		{ xtype:'hidden', fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
+		{ xtype:'textfield', hidden:true, fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
 		{ xtype:'addressView', title:'Incident Address' },	
 		{ xtype:'textfield', fieldLabel:'Address On Wildland', name:'addressOnWildlandFlag', type:'boolean'},
 		{ xtype: 'combo', fieldLabel:'Aid Given Or Recieved', name:'aidGivenOrRecieved', store:'dictionary.aidGivenOrReceived',

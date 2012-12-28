@@ -1,7 +1,7 @@
 Ext.define('AM.view.transaction.Address', {
 	extend: 'Ext.panel.Panel',
 	alias:'widget.addressView',
-	//model: 'AM.model.transaction.Address',
+	model: 'AM.model.transaction.Address',
 	defaults: { xtype:'textfield', labelStyle:'font-weight:bold' },
 	bodyStyle:{ padding:'5px' },
 	layout: {
@@ -9,7 +9,7 @@ Ext.define('AM.view.transaction.Address', {
 		align: 'stretch'
 	},
 	items: [
-		{ fieldLabel:'Record Type', name:'recordType', xtype:'hidden', type:'int', defaultValue:1010},
+		{ fieldLabel:'Record Type', name:'recordType', hidden:true, type:'int', defaultValue:1010},
 		{ fieldLabel:'Census Tract', name:'censusTract', type:'string'},
 		{ xtype: 'combo', fieldLabel:'Location Type', name:'locationType', store:'dictionary.locationType',
 			displayField:'desc',

@@ -1,22 +1,24 @@
 Ext.define('AM.view.incident.Incident', {
-    extend: 'Ext.panel.Panel',
-    alias: 'widget.incident',
+	extend: 'Ext.panel.Panel',
+	alias: 'widget.incident',
 	autoScroll: true,
 	layout: 'border',
-    title: 'Incident',
-    bodyStyle: { padding:'5px' },
-    initComponent: function() {
-        //this.addEvents('menuClick');
-        this.items = [
+	title: 'Incident',
+	bodyStyle: { padding:'5px' },
+	initComponent: function() {
+		//this.addEvents('menuClick');
+		this.addEvents({ 'cancel':true });
+		this.itemId = 'incidentEdit';
+		this.items = [
 			{ region:'center', itemId:'incidentCntnr', xtype:'panel', layout:'card', activeItem:0, items:[
 				{ xtype:'basicincident', itemId:'basic', title:'Basic' },
 				{ xtype:'supplementalincident', itemId:'supplemental', title:'Supplemental' },
 				{ xtype:'fireincident', itemId:'fire', title:'Fire' } //,
-                /*{ xtype:'structurefireincident', itemId:'structureFire', title:'Structure Fire' },
-                { xtype:'firecasualtyincident', itemId:'fireServiceCasualty', title:'Fire Service Casualty' },
-                { xtype:'casualtyincident', itemId:'civilianCasualty', title:'Casualty' },
-                { xtype:'emsincident', itemId:'ems', title:'EMS' },
-                { xtype:'hazmatincident', itemId:'hazmat', title:'HazMat' },
+				/*{ xtype:'structurefireincident', itemId:'structureFire', title:'Structure Fire' },
+				{ xtype:'firecasualtyincident', itemId:'fireServiceCasualty', title:'Fire Service Casualty' },
+				{ xtype:'casualtyincident', itemId:'civilianCasualty', title:'Casualty' },
+				{ xtype:'emsincident', itemId:'ems', title:'EMS' },
+				{ xtype:'hazmatincident', itemId:'hazmat', title:'HazMat' },
 				{ xtype:'wildlandincident', itemId:'wildland', title:'Wildland Fire' },
 				{ xtype:'apparatusincident', itemId:'apparatus', title:'Apparatus' },
 				{ xtype:'personnelincident', itemId:'personnel', title:'Personnel' },
@@ -43,56 +45,58 @@ Ext.define('AM.view.incident.Incident', {
 					text: 'Fire',
 					uri: 'fire'
 				},{
-                    text: 'Structure Fire',
-                    uri: 'structureFire'
-                },{
-                    text: 'Fire Service Casualty',
-                    uri: 'fireServiceCasualty'
-                },{
-                    text: 'Civilian Casualty',
-                    uri: 'civilianCasualty'
-                },{
-                    text: 'EMS',
-                    uri: 'ems'
-                },{
-                    text: 'HazMat',
-                    uri: 'hazmat'
-                },{
-                    text: 'Wildland Fire',
-                    uri: 'wildland'
-                },{
-                    text: 'Apparatus',
-                    uri: 'apparatus'
-                },{
-                    text: 'Personnel',
-                    uri: 'personnel'
-                },{
-                    text: 'Arson',
-                    uri: 'arson'
-                }
-                ]
+					text: 'Structure Fire',
+					uri: 'structureFire'
+				},{
+					text: 'Fire Service Casualty',
+					uri: 'fireServiceCasualty'
+				},{
+					text: 'Civilian Casualty',
+					uri: 'civilianCasualty'
+				},{
+					text: 'EMS',
+					uri: 'ems'
+				},{
+					text: 'HazMat',
+					uri: 'hazmat'
+				},{
+					text: 'Wildland Fire',
+					uri: 'wildland'
+				},{
+					text: 'Apparatus',
+					uri: 'apparatus'
+				},{
+					text: 'Personnel',
+					uri: 'personnel'
+				},{
+					text: 'Arson',
+					uri: 'arson'
+				}
+				]
 			}
 		];
-        this.buttons = [
-            {
-                text: 'Save',
-                action: 'save'
-            },
-            {
-                text: 'Cancel',
-                scope: this,
-                handler: this.close
-            }
-        ];
-        
-        this.callParent();
-        this.incidentCntnr = this.down('#incidentCntnr');
-    },
-    onMenuItemClick: function(item)
-    {
-		//console.log(arguments);
+		this.buttons = [
+			{
+				text: 'Save',
+				action: 'save'
+			},
+			{
+				text: 'Cancel',
+				scope: this,
+				handler: this.doCancel
+			}
+		];
+		
+		this.callParent();
+		this.incidentCntnr = this.down('#incidentCntnr');
+	},
+	onMenuItemClick: function(item)
+	{
 		//Ext.ux.Router.redirect(item.uri);
 		this.incidentCntnr.layout.setActiveItem(item.uri);
 		//this.incidentCntnr.setActiveTab(item.uri);
-    }
+	},
+	doCancel: function(button, e){
+		this.fireEvent( 'cancel' );
+	}
 });

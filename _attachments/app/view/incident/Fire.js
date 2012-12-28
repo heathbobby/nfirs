@@ -5,7 +5,7 @@ Ext.define('AM.view.incident.Fire', {
 	title: 'Fire',
 	bodyStyle: { padding:'5px' },
 	items:[
-		{ xtype:'hidden', fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1100 },
+		{ xtype:'textfield', hidden:true, fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1100 },
 		{ xtype:'textfield', fieldLabel:'Transaction Type', name:'transactionType', type:'int' },
 		{ xtype:'textfield', fieldLabel:'Number of Residential Units', name:'numberOfResidentialUnits', type:'int' },
 		{ xtype:'textfield', fieldLabel:'Not Residential', name:'notResidentialFlag', type:'boolean' },

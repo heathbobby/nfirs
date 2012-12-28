@@ -1,15 +1,15 @@
 Ext.define('AM.view.incident.List' ,{
-	extend: 'Ext.grid.Panel',
+	extend: 'Ext.ux.grid.CrudGrid',
 	alias: 'widget.incidentlist',
-
+	//requires:['Ext.ux.grid.CrudGrid'],
 	title: 'All Incidents',
 	store:'incident.Incident',
-	dockedItems:[
+	/*dockedItems:[
 		{ xtype:'toolbar', items:['->', 
 				{ xtype:'button', text:'New Incident', itemId:'newIncident'}
 			]
 		}
-	],
+	],*/
 	initComponent: function() {
 
 		this.columns = [

@@ -9,14 +9,18 @@ Ext.define('AM.controller.Users', {
 	{
 		this.control({
 		   'userlist': {
-				itemdblclick: this.onListRowDblClick
+				itemdblclick: this.onListRowDblClick,
+				rowedit: this.edit,
+				rowdelete: this.destroy,
+				scope:this
+			},
+			'userlist button':{
+				click: this.create,
+				scope:this
 			},
 			'useredit button[action=save]': {
 				click: this.onBtnUpdateClick,
 				scope:this
-			},
-			'userlist button':{
-				click: function(){ Ext.ux.Router.redirect('users/create'); }
 			}
 			
 		});
@@ -31,14 +35,14 @@ Ext.define('AM.controller.Users', {
 
 	edit: function(params)
 	{
-		var view,
+		var me = this,
+			view,
 			store = this.getUsersStore(),
 			record = store.getById(params.id) || Ext.create('AM.model.User');
 		if(!record)
 		{    
 			return;
 		}
-		
 		view = Ext.widget( 'useredit', { width:500 } );
 		view.down( 'form' ).loadRecord( record );
 	},
@@ -47,11 +51,21 @@ Ext.define('AM.controller.Users', {
 		view = Ext.widget( 'useredit', { width:500 });
 		view.down( 'form' ).loadRecord( Ext.create('AM.model.User') );
 	},
+
+	destroy: function(params, record){
+		var me = this,
+			store = this.getUsersStore(),
+			rec = record || store.getById(params.id);
+			record.destroy();  
+		
+		this.list();
+	},
 	
 //listeners
 	onListRowDblClick: function(gridView, record, item, index, event, eventOptions )
 	{
-		Ext.ux.Router.redirect('users/' + record.getId() + '/edit');
+		this.edit( { id:record.getId() } );
+		//Ext.ux.Router.redirect('users/' + record.getId() + '/edit');
 	},
 
 	onBtnUpdateClick: function(button)

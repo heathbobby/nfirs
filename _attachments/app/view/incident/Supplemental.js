@@ -5,7 +5,7 @@ Ext.define('AM.view.incident.Supplemental', {
 	title: 'Supplemental',
 	bodyStyle:{padding:'5px'},
 	items:[
-		{xtype:'hidden', fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
+		{xtype:'textfield', hidden:true, fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
 		{xtype:'textfield', fieldLabel:'Address On Wildland', name:'addressOnWildlandFlag', type:'boolean'},
 		{xtype: 'combo', fieldLabel:'Aid Given Or Recieved', name:'aidGivenOrRecieved', store:'dictionary.aidGivenOrReceived',
 			displayField:'desc',

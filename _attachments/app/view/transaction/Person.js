@@ -7,8 +7,8 @@ Ext.define('AM.view.transaction.Person', {
 		align: 'stretch'
 	},
 	items: [
-		{ xtype:'hidden', fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1050}, //1055
-		{ xtype:'hidden', fieldLabel:'Person Sequence Number', name:'personSequenceNumber', type:'int'},
+		{ xtype:'textfield', hidden:true, fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1050}, //1055
+		{ xtype:'textfield', hidden:true, fieldLabel:'Person Sequence Number', name:'personSequenceNumber', type:'int'},
 		{ 
 			xtype:'fieldcontainer',
 			fieldLabel:'Name',
