@@ -1,7 +1,7 @@
 Ext.define('AM.view.transaction.Address', {
 	extend: 'Ext.panel.Panel',
 	alias:'widget.addressView',
-	model: 'AM.model.transaction.Address',
+	model: 'AM.model.transaction.address',
 	defaults: { xtype:'textfield', labelStyle:'font-weight:bold' },
 	bodyStyle:{ padding:'5px' },
 	layout: {
@@ -18,7 +18,7 @@ Ext.define('AM.view.transaction.Address', {
 			queryMode:'remote'
 		}, //Coded
 		{ 
-			xtype:'fieldcontainer',
+			xtype:'panel',
 			fieldLabel:'Street',
 			layout:'hbox',
 			defaultType: 'textfield',
@@ -53,7 +53,7 @@ Ext.define('AM.view.transaction.Address', {
 			]
 		}, //Coded
 		{ fieldLabel:'Apartment Number', name:'apartmentNumber', type:'string'},
-		{ xtype:'fieldcontainer',
+		{ xtype:'panel',
 			fieldLabel:'City, State Zip',
 			layout:'hbox',
 			defaultType: 'textfield',

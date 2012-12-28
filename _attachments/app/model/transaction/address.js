@@ -1,4 +1,4 @@
-Ext.define('AM.model.transaction.Address', {
+Ext.define('AM.model.transaction.address', {
 	extend: 'AM.model.transaction.Transaction',
 	fields: [
 		{name:'recordType', type:'int', defaultValue:1010},
