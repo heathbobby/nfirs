@@ -4,7 +4,7 @@ Ext.define('AM.view.incident.Incident', {
 	autoScroll: true,
 	layout: 'border',
 	title: 'Incident',
-	bodyStyle: { padding:'5px' },
+	bodyPadding: 10,
 	initComponent: function() {
 		//this.addEvents('menuClick');
 		this.addEvents({ 'cancel':true });

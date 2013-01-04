@@ -3,8 +3,8 @@ Ext.define('AM.view.incident.Basic', {
 	alias: 'widget.basicincident',
 	autoScroll:true,
 	title: 'Basic',
-	bodyStyle:{ padding:'5px'},
-	defaults:{ bodyStyle: { padding:'5px' }, labelStyle: 'font-weight:bold' },
+	bodyPadding:5,
+	defaults:{ bodyPadding:5, labelStyle: 'font-weight:bold' },
 	items:[
 		{ xtype:'textfield', hidden:true, fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
 		{ xtype:'addressView', title:'Incident Address' },	
