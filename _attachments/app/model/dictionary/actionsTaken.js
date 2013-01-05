@@ -3,6 +3,9 @@ Ext.define('AM.model.dictionary.actionsTaken', {
 	proxy: { 
 		type: 'rest', 
 		url: '/couchdb/nfirs',
+		limitParam: undefined,
+		pageParam: undefined,
+		startParam: undefined,
 		reader: {
 			type:'json',
 			root:'rows',

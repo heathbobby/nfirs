@@ -6,6 +6,6 @@ Ext.define('AM.view.transaction.SpecialStudy', {
 		{ fieldLabel:'Record Type', name:'recordType', xtype:'textfield', hidden:true, type:'int', defaultValue:1050},
 		{ fieldLabel:'Sequence Number', name:'specialStudySequenceNumber', xtype:'textfield', hidden:true, type:'int'},
 		{ fieldLabel:'Identification Number', name:'specialStudyIdentificationNumber', type:'int'},
-		{ fieldLabel:'Study Code', name:'specialStudyCode'} //Coded
+		{ fieldLabel:'Study Code', name:'specialStudyCode', xtype:'textfield' } //Coded
 	]
 });

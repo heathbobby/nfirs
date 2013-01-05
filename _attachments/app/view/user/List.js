@@ -3,13 +3,6 @@ Ext.define('AM.view.user.List' ,{
 	alias: 'widget.userlist',
 	title: 'All Users',
 	store:'Users',
-	
-	dockedItems:[
-		{ xtype:'toolbar', items:['->', 
-				{ xtype:'button', text:'New User', itemId:'newUser'}
-			]
-		}
-	],
 	menu:undefined,
 	contextMenu:undefined,
 
@@ -21,7 +14,11 @@ Ext.define('AM.view.user.List' ,{
 			{ header: 'Last Name',  dataIndex: 'lastName',  flex: 1 },
 			{ header: 'Rank', dataIndex: 'rank', flex: 1 }
 		];
-
+		this.dockedItems = this.dockedItems || [
+			{ xtype:'toolbar', items:['->', 
+					{ xtype:'button', text:'New User', itemId:'newUser'}
+				]
+			}];
 		this.callParent( arguments );
 
 		this.contextMenu = Ext.apply({}, this.contextMenu || {}, {

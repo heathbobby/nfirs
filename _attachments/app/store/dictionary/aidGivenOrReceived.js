@@ -1,4 +1,6 @@
 Ext.define('AM.store.dictionary.aidGivenOrReceived', {
 	extend: 'Ext.data.Store',
-	model: 'AM.model.dictionary.aidGivenOrReceived'
+	model: 'AM.model.dictionary.aidGivenOrReceived',
+	storeId: 'aidGivenOrReceived',
+	autoLoad: true
 });

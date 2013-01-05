@@ -10,10 +10,27 @@ Ext.define('AM.controller.Incident', {
 		'transaction.SpecialStudy',
 		'incident.Supplemental',
 		'incident.Fire',
-		'incident.List'
+		'incident.List',
+		'user.List'
 	],
 	models:['incident.Incident','incident.Basic'],
-	stores:['incident.Incident'],
+	stores:[
+		'Users',
+		'incident.Incident',
+		'dictionary.ActionsTaken',
+		'dictionary.aidGivenOrReceived',
+		'dictionary.detector',
+		'dictionary.hazardousMaterialsReleased',
+		'dictionary.incidentType',
+		'dictionary.locationType',
+		'dictionary.mixedUseProperty',
+		'dictionary.namePrefix',
+		'dictionary.nameSuffix',
+		'dictionary.propertyUse',
+		'dictionary.streetType', 
+		'dictionary.streetPrefixOrSuffix', 
+		'dictionary.stateTerritoryAbbreviations'
+	],
 	refs:[
 		{ ref:'list', selector:'incidentlist'},
 		{ ref:'incident', selector:'incident'}
@@ -34,13 +51,16 @@ Ext.define('AM.controller.Incident', {
 				click: this.updateIncident
 			}
 		});
+		this.getUsersStore().load();
 	},
 
 	updateIncident:function(button){
 		var form = button.up('form'),
 		record = form.getRecord(),
 		values = form.getValues();
+		console.log(values);
 		record.set(values);
+		record.save({ callback:this.list, scope:this });
 	},
 	onListRowDblClick: function(gridView, record, item, index, event, eventOptions )
 	{

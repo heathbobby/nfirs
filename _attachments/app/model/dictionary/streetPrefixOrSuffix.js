@@ -3,6 +3,9 @@ Ext.define('AM.model.dictionary.streetPrefixOrSuffix', {
 	proxy: { 
 		type: 'rest', 
 		url: '/couchdb/nfirs',
+		limitParam: undefined,
+		pageParam: undefined,
+		startParam: undefined,
 		reader: {
 			type:'json',
 			root:'rows',

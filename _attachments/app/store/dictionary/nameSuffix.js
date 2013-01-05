@@ -1,4 +1,6 @@
 Ext.define('AM.store.dictionary.nameSuffix', {
 	extend: 'Ext.data.Store',
-	model: 'AM.model.dictionary.nameSuffix'
+	model: 'AM.model.dictionary.nameSuffix',
+	storeId: 'nameSuffix',
+	autoLoad: true
 });
