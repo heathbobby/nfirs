@@ -8,7 +8,7 @@ Ext.define('AM.view.incident.Basic', {
 
 	initComponent: function() {
 		this.items = [
-			{ xtype:'textfield', hidden:true, fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
+			/*{ xtype:'textfield', hidden:true, fieldLabel:'Record Type', name:'recordType', type:'int', defaultValue:1005},
 			{ xtype:'addressView', title:'Incident Address' },	
 			{ xtype:'combo', fieldLabel:'Address On Wildland', name:'addressOnWildlandFlag', store:[['Y', 'Yes'], ['N','No']], forceSelection:true, 
 				queryMode:'local',
@@ -62,6 +62,32 @@ Ext.define('AM.view.incident.Basic', {
 				} 
 			},
 			//{ xtype:'authorityView', title:'Member Making Report' },
+			*/
+			{ xtype:'gridfield', 
+				grid: { xtype:'gridpanel', fieldLabel:'Users', height:200, store:Ext.getStore('Users'),
+					autoScroll:true,
+					columns:[
+						{ header: 'Id',  dataIndex: 'personnelId' },
+						{ header: 'First Name',  dataIndex: 'firstName' },
+						{ header: 'Last Name',  dataIndex: 'lastName' },
+						{ header: 'Rank', dataIndex: 'rank' },
+						{ header: 'Officer in Charge', xtype:'actioncolumn',
+							align:'center',
+							// icon:'ext_4/resources/themes/images/neptune/checkbox.gif',
+							iconCls: 'x-form-checkbox x-form-cb-unchecked',
+							getClass:function(){ return 'x-form-checkbox x-form-cb-checked'; }
+						},
+						{ header: 'Making Report', xtype:'actioncolumn',
+							align:'center',
+							layout:{ pack:'center' },
+							//icon:'ext_4/resources/themes/images/neptune/checkbox.gif',
+							iconCls:'x-form-checkbox x-form-cb-unchecked',
+							getClass:function(){ return 'x-form-checkbox x-form-cb-checked'; }
+						}
+					]
+				}
+			}/*,
+			
 			{ xtype:'personView', title:'Person(s) Involved' },
 			{ xtype:'personView', title:'Incident Owner' },
 			{ xtype:'specialStudyView', title:'Specials Studies' },
@@ -111,7 +137,7 @@ Ext.define('AM.view.incident.Basic', {
 			{ xtype:'textfield', fieldLabel:'Other Deaths', name:'otherDeaths', type:'int'},
 			{ xtype:'textfield', fieldLabel:'Fire Service Injuries', name:'fireServiceInjuries', type:'int'},
 			{ xtype:'textfield', fieldLabel:'Other Injuries', name:'otherInjuries', type:'int'},
-			/*{xtype: 'combo', fieldLabel:'Detector Alerted Occupants', name:'detectorAlertedOccupants'},//Coded*/
+			//{xtype: 'combo', fieldLabel:'Detector Alerted Occupants', name:'detectorAlertedOccupants'},//Coded
 			{ xtype: 'combo', fieldLabel:'Hazardous Material Released', name:'hazardousMaterialReleased', 
 				store:'dictionary.hazardousMaterialsReleased',
 				displayField:'desc',
@@ -137,7 +163,7 @@ Ext.define('AM.view.incident.Basic', {
 				forceSelection: true,
 				queryMode:'local'
 			},
-			{ xtype:'textarea', name:'remarks', fieldLabel:'Remarks' }
+			{ xtype:'textarea', name:'remarks', fieldLabel:'Remarks' }*/
 		];
 
 		this.callParent( arguments );

@@ -2,7 +2,7 @@ Ext.Loader.setConfig({enabled: true});
 Ext.application({
 	appFolder: 'app',
 	paths: { 'Ext.ux': 'app/ux' },
-	requires: ['Ext.ux.Router','Ext.ux.data.proxy.CouchProxy', 'Ext.ux.data.reader.CouchReader', 'Ext.ux.data.writer.CouchWriter'],
+	requires: ['Ext.ux.Router', 'Ext.ux.data.proxy.CouchProxy', 'Ext.ux.data.reader.CouchReader', 'Ext.ux.data.writer.CouchWriter', 'Ext.ux.form.field.GridField' ],
 	autoCreateViewport: true,
 	name: 'AM',
 	controllers:['Controller', 'Users', 'Incident', 'Admin'],
